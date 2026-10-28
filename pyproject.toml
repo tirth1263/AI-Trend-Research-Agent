@@ -1,0 +1,19 @@
+[project]
+name = "ai-trend-research-agent"
+version = "1.0.0"
+description = "A 5-agent AI trends analysis pipeline built with Google ADK, Nebius, Exa, Tavily and Firecrawl"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Tirth Rank" }]
+requires-python = ">=3.10"
+dependencies = [
+    "google-adk>=2.0.0",
+    "litellm>=1.83.0",
+    "exa-py>=2.0.0",
+    "tavily-python>=0.7.0",
+    "firecrawl-py>=4.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[tool.uv]
+package = false

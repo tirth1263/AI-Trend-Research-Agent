@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Trend Research Agent</title>
+  <meta name="description" content="A 5-agent AI pipeline that mines AI news, benchmarks and the Nebius Token Factory catalogue, then delivers trend analysis and model recommendations." />
+  <meta property="og:title" content="AI Trend Research Agent" />
+  <meta property="og:description" content="Exa + Tavily + Firecrawl + Nebius — a 5-agent sequential pipeline for AI trend analysis." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a class="brand" href="#top"><span class="logo">◆</span> AI Trend Research Agent</a>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#run">Run</a>
+      <a class="gh" href="https://github.com/tirth1263/AI-Trend-Research-Agent" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="eyebrow">Google ADK · Nebius Token Factory · Exa · Tavily · Firecrawl</p>
+      <h1>Five AI agents.<br /><span class="grad">One sharp read on where AI is heading.</span></h1>
+      <p class="lede">
+        A sequential multi-agent pipeline that pulls the latest AI chatter from X, live benchmark data,
+        and the full Nebius model catalogue. It then has a 253B-parameter reasoning model turn all of that
+        into trend analysis and concrete model recommendations.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="#run">Run the pipeline →</a>
+        <a class="btn ghost" href="https://github.com/tirth1263/AI-Trend-Research-Agent" target="_blank" rel="noopener">View source</a>
+      </div>
+    </section>
+
+    <section id="how" class="section">
+      <h2>How it works</h2>
+      <p class="sub">Each agent writes its output into shared session state, and the next agent reads it. That is the <code>SequentialAgent</code> pattern.</p>
+      <ol class="pipeline" id="pipeline">
+        <li data-stage="exa"><span class="ico">🔥</span><b>ExaAgent</b><small>Latest AI news from Twitter / X</small><i class="state"></i></li>
+        <li data-stage="tavily"><span class="ico">🐳</span><b>TavilyAgent</b><small>Benchmarks &amp; provider analysis</small><i class="state"></i></li>
+        <li data-stage="summary"><span class="ico">🍥</span><b>SummaryAgent</b><small>Merges &amp; structures findings</small><i class="state"></i></li>
+        <li data-stage="firecrawl"><span class="ico">🕷️</span><b>FirecrawlAgent</b><small>Scrapes Nebius model catalogue</small><i class="state"></i></li>
+        <li data-stage="analysis"><span class="ico">🔍</span><b>AnalysisAgent</b><small>Nemotron Ultra 253B deep analysis</small><i class="state"></i></li>
+      </ol>
+    </section>
+
+    <section id="run" class="section">
+      <h2>Run it live</h2>
+      <p class="sub">
+        Bring your own keys. This page has no backend: your keys go straight from your browser to each provider
+        and are never sent anywhere else. They are kept only if you tick “Remember”.
+      </p>
+
+      <form id="keys" class="card keys" autocomplete="off">
+        <div class="grid">
+          <label>Nebius API key <a href="https://dub.sh/nebius" target="_blank" rel="noopener">get key</a>
+            <input type="password" name="nebius" placeholder="Nebius Token Factory key" required /></label>
+          <label>Exa API key <a href="https://exa.ai/" target="_blank" rel="noopener">get key</a>
+            <input type="password" name="exa" placeholder="Exa key (optional, see note)" /></label>
+          <label>Tavily API key <a href="https://tavily.com/" target="_blank" rel="noopener">get key</a>
+            <input type="password" name="tavily" placeholder="tvly-…" required /></label>
+          <label>Firecrawl API key <a href="https://firecrawl.dev/" target="_blank" rel="noopener">get key</a>
+            <input type="password" name="firecrawl" placeholder="fc-…" required /></label>
+        </div>
+
+        <details class="adv">
+          <summary>Advanced: models &amp; endpoint</summary>
+          <div class="grid">
+            <label>Nebius API base<input name="base" value="https://api.tokenfactory.nebius.com/v1" /></label>
+            <label>Worker model (agents 1–4)<input name="worker" list="models" value="meta-llama/Meta-Llama-3.1-8B-Instruct" /></label>
+            <label>Analysis model (agent 5)<input name="analysis" list="models" value="nvidia/Llama-3_1-Nemotron-Ultra-253B-v1" /></label>
+            <label class="inline"><button type="button" class="btn small" id="loadModels">Load my Nebius models</button><span id="modelsMsg" class="muted"></span></label>
+          </div>
+          <datalist id="models"></datalist>
+        </details>
+
+        <div class="row">
+          <label class="check"><input type="checkbox" name="remember" /> Remember keys in this browser</label>
+          <div class="actions">
+            <button type="button" class="btn ghost" id="clear">Clear</button>
+            <button type="button" class="btn ghost hidden" id="stop">Stop</button>
+            <button type="submit" class="btn primary" id="go">▶ Run analysis</button>
+          </div>
+        </div>
+        <p class="note">
+          ℹ️ Exa’s API doesn’t allow direct browser requests (CORS). If that call is blocked, this web version
+          fetches X/Twitter posts through Tavily (restricted to x.com / twitter.com). The Python ADK version calls Exa directly.
+        </p>
+      </form>
+
+      <div id="output" class="outputs"></div>
+
+      <div id="final" class="card final hidden">
+        <div class="final-head">
+          <h3>📢 AI News Analysis &amp; Insights</h3>
+          <div class="actions">
+            <button class="btn small" id="copy">Copy</button>
+            <button class="btn small" id="download">Download .md</button>
+          </div>
+        </div>
+        <article class="md" id="finalBody"></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Prefer the terminal?</h2>
+      <pre class="code"><code>git clone https://github.com/tirth1263/AI-Trend-Research-Agent.git
+cd AI-Trend-Research-Agent
+uv sync                      # or: pip install -r requirements.txt
+cp .env.example .env         # add your API keys
+adk run analyzer_agent       # terminal
+adk web                      # ADK dev UI at http://localhost:8000</code></pre>
+    </section>
+  </main>
+
+  <footer>
+    Built with Google ADK by <a href="https://github.com/tirth1263" target="_blank" rel="noopener">@tirth1263</a>.
+    Inspired by <a href="https://github.com/Arindam200/awesome-ai-apps" target="_blank" rel="noopener">awesome-ai-apps</a>.
+  </footer>
+
+  <template id="stageTpl">
+    <details class="card stage" open>
+      <summary><span class="ico"></span><b class="name"></b><span class="badge">waiting</span><span class="time"></span></summary>
+      <div class="md body"></div>
+    </details>
+  </template>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

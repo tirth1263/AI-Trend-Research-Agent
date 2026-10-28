@@ -1,0 +1,6 @@
+google-adk>=2.0.0
+litellm>=1.83.0
+exa-py>=2.0.0
+tavily-python>=0.7.0
+firecrawl-py>=4.0.0
+python-dotenv>=1.0.0

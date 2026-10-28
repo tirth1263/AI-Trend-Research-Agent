@@ -1,0 +1,10 @@
+.env
+*.env
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+.adk/
+*.egg-info/
+.DS_Store
+uv.lock.bak
